@@ -18,6 +18,11 @@
 		48FF488328C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */; };
 		48FF489128C1134400E42272 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489028C1134400E42272 /* Repository.swift */; };
 		48FF489328C1136A00E42272 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489228C1136A00E42272 /* Fruit.swift */; };
+		48FF489628C1176F00E42272 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489528C1176F00E42272 /* RxBlocking */; };
+		48FF489828C1176F00E42272 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489728C1176F00E42272 /* RxCocoa */; };
+		48FF489A28C1176F00E42272 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489928C1176F00E42272 /* RxRelay */; };
+		48FF489C28C1176F00E42272 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489B28C1176F00E42272 /* RxSwift */; };
+		48FF489E28C1176F00E42272 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489D28C1176F00E42272 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48FF489E28C1176F00E42272 /* RxTest in Frameworks */,
+				48FF489A28C1176F00E42272 /* RxRelay in Frameworks */,
+				48FF489828C1176F00E42272 /* RxCocoa in Frameworks */,
+				48FF489C28C1176F00E42272 /* RxSwift in Frameworks */,
+				48FF489628C1176F00E42272 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +167,13 @@
 			dependencies = (
 			);
 			name = TDD_JuiceMaker;
+			packageProductDependencies = (
+				48FF489528C1176F00E42272 /* RxBlocking */,
+				48FF489728C1176F00E42272 /* RxCocoa */,
+				48FF489928C1176F00E42272 /* RxRelay */,
+				48FF489B28C1176F00E42272 /* RxSwift */,
+				48FF489D28C1176F00E42272 /* RxTest */,
+			);
 			productName = TDD_JuiceMaker;
 			productReference = 48FF485C28C10E1600E42272 /* TDD_JuiceMaker.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 48FF485328C10E1600E42272;
+			packageReferences = (
+				48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 48FF485D28C10E1600E42272 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -618,6 +638,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48FF489528C1176F00E42272 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		48FF489728C1176F00E42272 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		48FF489928C1176F00E42272 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		48FF489B28C1176F00E42272 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		48FF489D28C1176F00E42272 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 48FF485428C10E1600E42272 /* Project object */;
 }
