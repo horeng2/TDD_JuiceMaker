@@ -9,24 +9,28 @@ import XCTest
 @testable import TDD_JuiceMaker
 
 class RepositoryTests: XCTestCase {
-    var stock: [String: Int]!
+    var repository: Repository!
+    var initialStock = 20
 
     override func setUp() {
-        self.stock = ["딸기":10, "바나나": 5]
-    }
-
-    func test_updateStock() {
-        let result = stock.updateValue(100, forKey: "딸기")
-        let expectation = 100
-        
-        XCTAssertEqual(result, expectation)
+        self.repository  = Repository(initialStock: initialStock)
     }
     
     func test_readStock() {
-        let result = self.stock["딸기"]
-        let expectation = 10
+        Fruit.allCases.forEach{ fruit in
+            let result = self.repository.readStock()[fruit]
+            let expectation = self.initialStock
+            
+            XCTAssertEqual(result, expectation)
+        }
+    }
+    
+    func test_updateStock() {
+        self.repository.updateStock(of: .strawberry, newValue: 1)
+        
+        let result = self.repository.readStock()[.strawberry]
+        let expectation = 1
         
         XCTAssertEqual(result, expectation)
     }
-
 }

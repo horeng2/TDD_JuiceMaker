@@ -11,8 +11,8 @@ class Repository {
     private var stock = [Fruit: Int]()
     private let initialStock: Int
     
-    init(initalStock: Int) {
-        self.initialStock = initalStock
+    init(initialStock: Int) {
+        self.initialStock = initialStock
         
         Fruit.allCases.forEach { fruit in
             stock.updateValue(self.initialStock, forKey: fruit)
