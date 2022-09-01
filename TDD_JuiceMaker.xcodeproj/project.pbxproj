@@ -16,6 +16,8 @@
 		48FF487728C10E1700E42272 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF487628C10E1700E42272 /* RepositoryTests.swift */; };
 		48FF488128C10E1700E42272 /* TDD_JuiceMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */; };
 		48FF488328C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */; };
+		48FF489128C1134400E42272 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489028C1134400E42272 /* Repository.swift */; };
+		48FF489328C1136A00E42272 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489228C1136A00E42272 /* Fruit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		48FF487C28C10E1700E42272 /* TDD_JuiceMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_JuiceMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITests.swift; sourceTree = "<group>"; };
 		48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		48FF489028C1134400E42272 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		48FF489228C1136A00E42272 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		48FF485E28C10E1600E42272 /* TDD_JuiceMaker */ = {
 			isa = PBXGroup;
 			children = (
+				48FF488F28C1133500E42272 /* Repository */,
 				48FF485F28C10E1600E42272 /* AppDelegate.swift */,
 				48FF486128C10E1600E42272 /* SceneDelegate.swift */,
 				48FF486328C10E1600E42272 /* ViewController.swift */,
@@ -125,6 +130,15 @@
 				48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */,
 			);
 			path = TDD_JuiceMakerUITests;
+			sourceTree = "<group>";
+		};
+		48FF488F28C1133500E42272 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				48FF489028C1134400E42272 /* Repository.swift */,
+				48FF489228C1136A00E42272 /* Fruit.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48FF489328C1136A00E42272 /* Fruit.swift in Sources */,
 				48FF486428C10E1600E42272 /* ViewController.swift in Sources */,
 				48FF486028C10E1600E42272 /* AppDelegate.swift in Sources */,
 				48FF486228C10E1600E42272 /* SceneDelegate.swift in Sources */,
+				48FF489128C1134400E42272 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
