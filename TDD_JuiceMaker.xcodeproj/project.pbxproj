@@ -13,7 +13,7 @@
 		48FF486728C10E1600E42272 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FF486528C10E1600E42272 /* Main.storyboard */; };
 		48FF486928C10E1700E42272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48FF486828C10E1700E42272 /* Assets.xcassets */; };
 		48FF486C28C10E1700E42272 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FF486A28C10E1700E42272 /* LaunchScreen.storyboard */; };
-		48FF487728C10E1700E42272 /* TDD_JuiceMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF487628C10E1700E42272 /* TDD_JuiceMakerTests.swift */; };
+		48FF487728C10E1700E42272 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF487628C10E1700E42272 /* RepositoryTests.swift */; };
 		48FF488128C10E1700E42272 /* TDD_JuiceMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */; };
 		48FF488328C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		48FF486B28C10E1700E42272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48FF486D28C10E1700E42272 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48FF487228C10E1700E42272 /* TDD_JuiceMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_JuiceMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48FF487628C10E1700E42272 /* TDD_JuiceMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerTests.swift; sourceTree = "<group>"; };
+		48FF487628C10E1700E42272 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		48FF487C28C10E1700E42272 /* TDD_JuiceMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_JuiceMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITests.swift; sourceTree = "<group>"; };
 		48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		48FF487528C10E1700E42272 /* TDD_JuiceMakerTests */ = {
 			isa = PBXGroup;
 			children = (
-				48FF487628C10E1700E42272 /* TDD_JuiceMakerTests.swift */,
+				48FF487628C10E1700E42272 /* RepositoryTests.swift */,
 			);
 			path = TDD_JuiceMakerTests;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48FF487728C10E1700E42272 /* TDD_JuiceMakerTests.swift in Sources */,
+				48FF487728C10E1700E42272 /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
