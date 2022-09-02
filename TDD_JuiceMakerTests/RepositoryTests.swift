@@ -12,36 +12,44 @@ import RxBlocking
 @testable import TDD_JuiceMaker
 
 class RepositoryTests: XCTestCase {
-    var repository: Repository!
-    var initialStock = 20
     let scheduler = TestScheduler(initialClock: 0)
+    let initialStock = 10
 
+    var repository: Repository!
+    var testData = [Fruit: Int]()
+    var testFruit: Fruit!
 
     override func setUp() {
         self.repository  = Repository(initialStock: initialStock)
+        self.testFruit = .strawberry
+
+        Fruit.allCases.forEach { fruit in
+            self.testData.updateValue(self.initialStock, forKey: fruit)
+        }
     }
     
     func test_readStock() {
-        let observable = try! self.repository
-            .readStock(of: .strawberry)
+        let observable = try! repository
+            .readStock(of: testFruit)
             .toBlocking()
         
         let result = try! observable.single()
-        let expectation = initialStock
+        let expectation = testData[testFruit]
 
-        
         XCTAssertEqual(result, expectation)
     }
     
     func test_updateStock() {
-        self.repository.updateStock(of: .strawberry, newValue: 1)
-
-        let observable = try! self.repository
-            .readStock(of: .strawberry)
+        repository.updateStock(of: testFruit, newValue: 1)
+        testData.updateValue(1, forKey: testFruit)
+        
+        let observable = try! repository
+            .readStock(of: testFruit)
             .toBlocking()
 
         let updatedValue = try! observable.single()
-        let expectation = 1
+        let expectation = testData[testFruit]
+        
         XCTAssertEqual(updatedValue, expectation)
     }
 }
