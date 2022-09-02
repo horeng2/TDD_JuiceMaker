@@ -23,6 +23,8 @@
 		48FF489A28C1176F00E42272 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489928C1176F00E42272 /* RxRelay */; };
 		48FF489C28C1176F00E42272 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489B28C1176F00E42272 /* RxSwift */; };
 		48FF489E28C1176F00E42272 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489D28C1176F00E42272 /* RxTest */; };
+		48FF48A028C117B700E42272 /* JuiceMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489F28C117B700E42272 /* JuiceMakerTests.swift */; };
+		48FF48A228C1194C00E42272 /* Juice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48A128C1194C00E42272 /* Juice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		48FF489028C1134400E42272 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		48FF489228C1136A00E42272 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
+		48FF489F28C117B700E42272 /* JuiceMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceMakerTests.swift; sourceTree = "<group>"; };
+		48FF48A128C1194C00E42272 /* Juice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Juice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		48FF485E28C10E1600E42272 /* TDD_JuiceMaker */ = {
 			isa = PBXGroup;
 			children = (
+				48FF48A328C1D55200E42272 /* Model */,
 				48FF488F28C1133500E42272 /* Repository */,
 				48FF485F28C10E1600E42272 /* AppDelegate.swift */,
 				48FF486128C10E1600E42272 /* SceneDelegate.swift */,
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				48FF487628C10E1700E42272 /* RepositoryTests.swift */,
+				48FF489F28C117B700E42272 /* JuiceMakerTests.swift */,
 			);
 			path = TDD_JuiceMakerTests;
 			sourceTree = "<group>";
@@ -146,9 +152,17 @@
 			isa = PBXGroup;
 			children = (
 				48FF489028C1134400E42272 /* Repository.swift */,
-				48FF489228C1136A00E42272 /* Fruit.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		48FF48A328C1D55200E42272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48FF489228C1136A00E42272 /* Fruit.swift */,
+				48FF48A128C1194C00E42272 /* Juice.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,7 @@
 				48FF486428C10E1600E42272 /* ViewController.swift in Sources */,
 				48FF486028C10E1600E42272 /* AppDelegate.swift in Sources */,
 				48FF486228C10E1600E42272 /* SceneDelegate.swift in Sources */,
+				48FF48A228C1194C00E42272 /* Juice.swift in Sources */,
 				48FF489128C1134400E42272 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48FF487728C10E1700E42272 /* RepositoryTests.swift in Sources */,
+				48FF48A028C117B700E42272 /* JuiceMakerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +404,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -448,6 +465,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

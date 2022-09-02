@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class Repository {
     private var stock = [Fruit: Int]()
@@ -19,11 +20,19 @@ class Repository {
         }
     }
     
-    func readStock() -> [Fruit: Int] {
-        return self.stock
+    func readStock(of fruit: Fruit) throws -> Observable<Int> {
+        guard let fruitStock = self.stock[fruit] else {
+            throw ErrorType.readError
+        }
+        return Observable.just(fruitStock)
     }
     
     func updateStock(of fruit: Fruit, newValue: Int) {
         self.stock.updateValue(newValue, forKey: fruit)
     }
+}
+
+
+enum ErrorType: Error {
+    case readError
 }
