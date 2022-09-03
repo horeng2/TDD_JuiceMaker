@@ -125,15 +125,14 @@
 		48FF485E28C10E1600E42272 /* TDD_JuiceMaker */ = {
 			isa = PBXGroup;
 			children = (
+				48FF486D28C10E1700E42272 /* Info.plist */,
+				48FF48B028C3AA2600E42272 /* App */,
+				48FF48B128C3AA3B00E42272 /* Presenter */,
+				48FF48AF28C3AA1300E42272 /* UseCases */,
+				48FF48AE28C3A9FC00E42272 /* Entity */,
 				48FF48A328C1D55200E42272 /* Model */,
 				48FF488F28C1133500E42272 /* Repository */,
-				48FF485F28C10E1600E42272 /* AppDelegate.swift */,
-				48FF486128C10E1600E42272 /* SceneDelegate.swift */,
-				48FF486328C10E1600E42272 /* ViewController.swift */,
-				48FF486528C10E1600E42272 /* Main.storyboard */,
-				48FF486828C10E1700E42272 /* Assets.xcassets */,
-				48FF486A28C10E1700E42272 /* LaunchScreen.storyboard */,
-				48FF486D28C10E1700E42272 /* Info.plist */,
+				48FF48B228C3AA4E00E42272 /* Assets */,
 			);
 			path = TDD_JuiceMaker;
 			sourceTree = "<group>";
@@ -162,7 +161,6 @@
 			children = (
 				48FF489028C1134400E42272 /* FruitRepository.swift */,
 				48FF48A628C338B400E42272 /* Repository.swift */,
-				48FF48AA28C3857300E42272 /* JuiceMaker.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -170,11 +168,53 @@
 		48FF48A328C1D55200E42272 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				48FF489228C1136A00E42272 /* Fruit.swift */,
-				48FF48A128C1194C00E42272 /* Juice.swift */,
 				48FF48AC28C3A9C600E42272 /* ErrorType.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		48FF48AE28C3A9FC00E42272 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				48FF489228C1136A00E42272 /* Fruit.swift */,
+				48FF48A128C1194C00E42272 /* Juice.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		48FF48AF28C3AA1300E42272 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				48FF48AA28C3857300E42272 /* JuiceMaker.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		48FF48B028C3AA2600E42272 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				48FF485F28C10E1600E42272 /* AppDelegate.swift */,
+				48FF486128C10E1600E42272 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		48FF48B128C3AA3B00E42272 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48FF486328C10E1600E42272 /* ViewController.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		48FF48B228C3AA4E00E42272 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				48FF486528C10E1600E42272 /* Main.storyboard */,
+				48FF486828C10E1700E42272 /* Assets.xcassets */,
+				48FF486A28C10E1700E42272 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
