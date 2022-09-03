@@ -9,7 +9,11 @@ import Foundation
 import RxSwift
 
 final class OrderViewModel {
-    private let juiceMaker = JuiceMaker(fruitRepository: FruitRepository())
+    private let juiceMaker: JuiceMaker
+    
+    init(repository: Repository) {
+        self.juiceMaker = JuiceMaker(fruitRepository: repository)
+    }
     
     struct Input {
         let viewWillAppear: Observable<Void>
@@ -28,91 +32,135 @@ final class OrderViewModel {
         let pineappleStock: Observable<String>
         let kiwiStock: Observable<String>
         let mangoStock: Observable<String>
-        let orderResultMessage: Observable<String>
+        let orderResultMessage: PublishSubject<String>
     }
     
     func transform(input: Input) -> Output {
-        let strawBananaJuiceMakingResult = input.strawBananaJuiceButtonDidTap
+        let orderResultMessage = PublishSubject<String>()
+        
+        let strawBananaJuiceTapAction = input.strawBananaJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.strawberryBananaJuice) }
-            .share()
-        
-        let mangoKiwiJuiceMakingResult = input.mangoKiwiJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                
+        let mangoKiwiJuiceTapAction = input.mangoKiwiJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.mangoKiwiJuice) }
-            .share()
-        
-        let strawberryJuiceMakingResult = input.strawberryJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                
+        let strawberryJuiceTapAction = input.strawberryJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.strawberryJuice) }
-            .share()
-        
-        let bananaJuiceMakingResult = input.bananaJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                
+        let bananaJuiceTapAction = input.bananaJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.bananaJuice) }
-            .share()
-        
-        let pineappleJuiceMakingResult = input.pineappleJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                        
+        let pineappleJuiceTapAction = input.pineappleJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.pineappleJuice) }
-            .share()
-        
-        let kiwiJuiceMakingResult = input.kiwiJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                
+        let kiwiJuiceTapAction = input.kiwiJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.kiwiJuice) }
-            .share()
-        
-        let mangoJuiceMakingResult = input.mangoJuiceButtonDidTap
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                                
+        let mangoJuiceTapAction = input.mangoJuiceButtonDidTap
             .flatMap{ self.juiceMaker.makeJuice(.mangoJuice) }
-            .share()
-        
-        let orderResultMessage = Observable.merge(
-            strawBananaJuiceMakingResult,
-            mangoKiwiJuiceMakingResult,
-            strawberryJuiceMakingResult,
-            bananaJuiceMakingResult,
-            pineappleJuiceMakingResult,
-            kiwiJuiceMakingResult,
-            mangoJuiceMakingResult
-        )
-            .map{ makeJuiceResult in
-                OrderResult(makeJuiceResult).message
-            }
-
+            .do(onNext: { juice in
+                let message = OrderResult.orderSuccess(juice: juice).message
+                orderResultMessage.onNext(message)
+            }, onError: { error in
+                let message = OrderResult.orderFailure.message
+                orderResultMessage.onNext(message)
+            })
+            .mapToVoid()
+            .retry()
+                                        
         let strawberryStock = Observable.merge(
             input.viewWillAppear,
-            strawBananaJuiceMakingResult.mapToVoid(),
-            strawberryJuiceMakingResult.mapToVoid()
+            strawBananaJuiceTapAction.mapToVoid(),
+            strawberryJuiceTapAction.mapToVoid()
         ).flatMap { _ in
             self.fecthFruitStockToString(of: .strawberry)
         }
-        
+                
         let bananaStock = Observable.merge(
             input.viewWillAppear,
-            strawBananaJuiceMakingResult.mapToVoid(),
-            strawberryJuiceMakingResult.mapToVoid()
+            strawBananaJuiceTapAction.mapToVoid(),
+            bananaJuiceTapAction.mapToVoid()
         ).flatMap { _ in
             self.fecthFruitStockToString(of: .banana)
         }
-        
+                                        
         let pineappleStock = Observable.merge(
             input.viewWillAppear,
-            strawBananaJuiceMakingResult.mapToVoid(),
-            strawberryJuiceMakingResult.mapToVoid()
+            pineappleJuiceTapAction.mapToVoid()
         ).flatMap { _ in
             self.fecthFruitStockToString(of: .pineapple)
         }
-        
+                
         let kiwiStock = Observable.merge(
             input.viewWillAppear,
-            strawBananaJuiceMakingResult.mapToVoid(),
-            strawberryJuiceMakingResult.mapToVoid()
+            mangoKiwiJuiceTapAction.mapToVoid(),
+            kiwiJuiceTapAction.mapToVoid()
         ).flatMap { _ in
             self.fecthFruitStockToString(of: .kiwi)
         }
-        
+                                        
         let mangoStock = Observable.merge(
             input.viewWillAppear,
-            strawBananaJuiceMakingResult.mapToVoid(),
-            strawberryJuiceMakingResult.mapToVoid()
+            mangoKiwiJuiceTapAction.mapToVoid(),
+            mangoJuiceTapAction.mapToVoid()
         ).flatMap { _ in
             self.fecthFruitStockToString(of: .mango)
         }
-        
+                
         return Output(strawberryStock: strawberryStock,
                       bananaStock: bananaStock,
                       pineappleStock: pineappleStock,
@@ -128,26 +176,16 @@ final class OrderViewModel {
     enum OrderResult {
         var message: String {
             switch self {
-            case .orderSuccess:
-                return "주스 주문 완료🥤"
+            case .orderSuccess(let juice):
+                return "\(juice.koreaName) 주문 완료🥤"
             case .orderFailure:
                 return "주문 실패! 재고가 부족해요💦"
             }
         }
         
-        init(_ makeJuiceResult: Bool) {
-            switch makeJuiceResult {
-            case true:
-                self = .orderSuccess
-            case false:
-                self = .orderFailure
-            }
-        }
-        
-        case orderSuccess
+        case orderSuccess(juice: Juice)
         case orderFailure
     }
-    
 }
 
 
