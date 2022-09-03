@@ -39,7 +39,4 @@ final class FruitRepository: Repository {
 }
 
 
-enum ErrorType: Error {
-    case readError
-    case outOfStock
-}
+
