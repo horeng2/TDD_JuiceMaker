@@ -10,10 +10,10 @@ import RxSwift
 import RxBlocking
 @testable import TDD_JuiceMaker
 
-class FruitRepositoryTests: XCTestCase {
-    var repository: MockFruitRepository!
-    var testData = [Fruit: Int]()
-    var testFruit: Fruit!
+final class FruitRepositoryTests: XCTestCase {
+    private var repository: MockFruitRepository!
+    private var testData = [Fruit: Int]()
+    private var testFruit: Fruit!
     
     override func setUp() {
         self.testData = [.strawberry: 10,
@@ -26,7 +26,7 @@ class FruitRepositoryTests: XCTestCase {
     }
     
     func test_readStock() {
-        let observable = try! repository.readStock(of: testFruit)
+        let observable = repository.readStock(of: testFruit)
             .toBlocking()
         let result = try! observable.single()
         let expectation = testData[testFruit]
@@ -39,7 +39,7 @@ class FruitRepositoryTests: XCTestCase {
 
         repository.updateStock(of: testFruit, newValue: newValue)
         
-       let observable = try! repository.readStock(of: testFruit)
+       let observable = repository.readStock(of: testFruit)
             .toBlocking()
         let result = try! observable.single()
         let expectation = newValue
@@ -53,7 +53,7 @@ class FruitRepositoryTests: XCTestCase {
         
         try! repository.decreaseStock(of: testFruit, by: decreaseCount)
         
-        let observable = try! repository.readStock(of: testFruit)
+        let observable = repository.readStock(of: testFruit)
              .toBlocking()
         let result = try! observable.single()
         let expectation = testData[testFruit]! - decreaseCount

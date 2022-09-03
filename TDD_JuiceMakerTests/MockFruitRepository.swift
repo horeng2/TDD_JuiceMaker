@@ -16,10 +16,8 @@ final class MockFruitRepository: Repository {
         self.stockData = data
     }
     
-    func readStock(of fruit: Fruit) throws -> Observable<Int> {
-        guard let fruitStock = self.stockData[fruit] else {
-            throw ErrorType.readError
-        }
+    func readStock(of fruit: Fruit) -> Observable<Int> {
+        let fruitStock = self.stockData[fruit]!
         return Observable.just(fruitStock)
     }
     
@@ -29,9 +27,9 @@ final class MockFruitRepository: Repository {
     
     func decreaseStock(of fruit: Fruit, by count: Int) throws {
         guard let currentStock = self.stockData[fruit] else {
-            throw ErrorType.readError
+            return
         }
-        guard currentStock > .zero else {
+        guard currentStock - count > .zero else {
             throw ErrorType.outOfStock
         }
         self.stockData.updateValue(currentStock - count, forKey: fruit)

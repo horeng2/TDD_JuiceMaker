@@ -8,22 +8,18 @@
 import Foundation
 import RxSwift
 
-class FruitRepository: Repository {
+final class FruitRepository: Repository {
     private var stockData = [Fruit: Int]()
-    private let initialStock: Int
+    private let initialStock = 10
     
-    init(initialStock: Int) {
-        self.initialStock = initialStock
-        
+    init() {
         Fruit.allCases.forEach { fruit in
             stockData.updateValue(self.initialStock, forKey: fruit)
         }
     }
     
-    func readStock(of fruit: Fruit) throws -> Observable<Int> {
-        guard let fruitStock = self.stockData[fruit] else {
-            throw ErrorType.readError
-        }
+    func readStock(of fruit: Fruit) -> Observable<Int> {
+        let fruitStock = self.stockData[fruit]!
         return Observable.just(fruitStock)
     }
     
