@@ -31,10 +31,12 @@ class FruitRepository: Repository {
         self.stockData.updateValue(newValue, forKey: fruit)
     }
     
-    func decreaseStock(of fruit: Fruit, by count: Int) {
-        guard let currentStock = self.stockData[fruit],
-              currentStock > .zero else {
+    func decreaseStock(of fruit: Fruit, by count: Int) throws {
+        guard let currentStock = self.stockData[fruit] else {
             return
+        }
+        guard currentStock - count > .zero else {
+            throw ErrorType.outOfStock
         }
         self.stockData.updateValue(currentStock - count, forKey: fruit)
     }

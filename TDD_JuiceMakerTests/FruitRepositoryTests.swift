@@ -11,20 +11,23 @@ import RxBlocking
 @testable import TDD_JuiceMaker
 
 class FruitRepositoryTests: XCTestCase {
+    var repository: MockFruitRepository!
     var testData = [Fruit: Int]()
     var testFruit: Fruit!
-
+    
     override func setUp() {
-        Fruit.allCases.forEach { fruit in
-            self.testData.updateValue(10, forKey: fruit)
-        }
-        self.testFruit = .strawberry
+        self.testData = [.strawberry: 10,
+                          .banana: 15,
+                          .pineapple: 20,
+                          .kiwi: 30,
+                          .mango: 40]
+        self.repository = MockFruitRepository(data: self.testData)
+        self.testFruit = .banana
     }
     
     func test_readStock() {
-        let observable = Observable.just(testData[testFruit])
+        let observable = try! repository.readStock(of: testFruit)
             .toBlocking()
-
         let result = try! observable.single()
         let expectation = testData[testFruit]
 
@@ -33,20 +36,37 @@ class FruitRepositoryTests: XCTestCase {
     
     func test_updateStock() {
         let newValue = 20
-        testData.updateValue(newValue, forKey: testFruit)
+
+        repository.updateStock(of: testFruit, newValue: newValue)
         
-        XCTAssertEqual(newValue, testData[testFruit])
+       let observable = try! repository.readStock(of: testFruit)
+            .toBlocking()
+        let result = try! observable.single()
+        let expectation = newValue
+        
+        XCTAssertEqual(result, expectation)
+        repository.verifyReadStock(of: testFruit, readStockResult: newValue)
     }
     
-    func decreaseStock(of fruit: Fruit, by count: Int) throws {
-        guard let currentStock = self.testData[fruit] else {
-            throw ErrorType.readError
-        }
-        guard currentStock > .zero else {
-            throw ErrorType.outOfStock
-        }
-        self.testData.updateValue(currentStock - count, forKey: fruit)
+    func test_decreaseStock() {
+        let decreaseCount = 1
         
-        XCTAssertEqual(currentStock - count, testData[fruit])
+        try! repository.decreaseStock(of: testFruit, by: decreaseCount)
+        
+        let observable = try! repository.readStock(of: testFruit)
+             .toBlocking()
+        let result = try! observable.single()
+        let expectation = testData[testFruit]! - decreaseCount
+        
+        XCTAssertEqual(result, expectation)
+        repository.verifyReadStock(of: testFruit, readStockResult: testData[testFruit]! - decreaseCount)
+    }
+    
+    func test_outOfStockError() {
+        let decreaseCount = testData[testFruit]! + 1
+        
+        XCTAssertThrowsError(try repository.decreaseStock(of: testFruit, by: decreaseCount)) {
+            XCTAssertEqual($0 as! ErrorType, ErrorType.outOfStock)
+        }
     }
 }
