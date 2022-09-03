@@ -29,6 +29,8 @@
 		48FF48A928C339A800E42272 /* MockFruitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48A828C339A800E42272 /* MockFruitRepository.swift */; };
 		48FF48AB28C3857300E42272 /* JuiceMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48AA28C3857300E42272 /* JuiceMaker.swift */; };
 		48FF48AD28C3A9C600E42272 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48AC28C3A9C600E42272 /* ErrorType.swift */; };
+		48FF48B528C3AB3B00E42272 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48B428C3AB3B00E42272 /* OrderViewModel.swift */; };
+		48FF48B828C3AC6300E42272 /* Observable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF48B728C3AC6300E42272 /* Observable+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		48FF48A828C339A800E42272 /* MockFruitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFruitRepository.swift; sourceTree = "<group>"; };
 		48FF48AA28C3857300E42272 /* JuiceMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceMaker.swift; sourceTree = "<group>"; };
 		48FF48AC28C3A9C600E42272 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		48FF48B428C3AB3B00E42272 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		48FF48B728C3AC6300E42272 /* Observable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 				48FF48AE28C3A9FC00E42272 /* Entity */,
 				48FF48A328C1D55200E42272 /* Model */,
 				48FF488F28C1133500E42272 /* Repository */,
+				48FF48B628C3AC4F00E42272 /* Extension */,
 				48FF48B228C3AA4E00E42272 /* Assets */,
 			);
 			path = TDD_JuiceMaker;
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				48FF486328C10E1600E42272 /* ViewController.swift */,
+				48FF48B428C3AB3B00E42272 /* OrderViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -215,6 +221,14 @@
 				48FF486A28C10E1700E42272 /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		48FF48B628C3AC4F00E42272 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				48FF48B728C3AC6300E42272 /* Observable+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +378,9 @@
 				48FF486428C10E1600E42272 /* ViewController.swift in Sources */,
 				48FF48AB28C3857300E42272 /* JuiceMaker.swift in Sources */,
 				48FF486028C10E1600E42272 /* AppDelegate.swift in Sources */,
+				48FF48B828C3AC6300E42272 /* Observable+Extension.swift in Sources */,
 				48FF486228C10E1600E42272 /* SceneDelegate.swift in Sources */,
+				48FF48B528C3AB3B00E42272 /* OrderViewModel.swift in Sources */,
 				48FF48A228C1194C00E42272 /* Juice.swift in Sources */,
 				48FF489128C1134400E42272 /* FruitRepository.swift in Sources */,
 			);
