@@ -19,7 +19,7 @@ struct JuiceMaker {
         return self.fruitRepository.readStock(of: fruit)
     }
     
-    func makeJuice(_ juice: Juice) -> Observable<Bool> {
+    func makeJuice(_ juice: Juice) -> Observable<Juice> {
         let makeResult = self.haveAllIngredients(for: juice)
             .do(onNext: { canMake in
                 guard canMake else {
@@ -27,6 +27,18 @@ struct JuiceMaker {
                 }
                 self.decreaseFruitStock(for: juice)
             })
+            .flatMap { bool in
+                Observable<Juice>.create{ emitter in
+                    switch bool {
+                    case true:
+                        emitter.onNext(juice)
+                    case false:
+                        emitter.onError(ErrorType.outOfStock)
+                    }
+                    return Disposables.create()
+                }
+            }
+        
         return makeResult
     }
     
@@ -54,5 +66,9 @@ struct JuiceMaker {
                     return currentStock >= requiredCount
                 }
         }
+    }
+    
+    func updateFruitStock(of fruit: Fruit, newQuantity: Int) {
+        self.fruitRepository.updateStock(of: fruit, newValue: newQuantity)
     }
 }
