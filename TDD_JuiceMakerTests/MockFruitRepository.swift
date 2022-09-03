@@ -27,11 +27,25 @@ final class MockFruitRepository: Repository {
         self.stockData.updateValue(newValue, forKey: fruit)
     }
     
+    func decreaseStock(of fruit: Fruit, by count: Int) throws {
+        guard let currentStock = self.stockData[fruit] else {
+            throw ErrorType.readError
+        }
+        guard currentStock > .zero else {
+            throw ErrorType.outOfStock
+        }
+        self.stockData.updateValue(currentStock - count, forKey: fruit)
+    }
+    
     func verifyReadStock(of fruit: Fruit, readStockResult: Int) {
         XCTAssertEqual(self.stockData[fruit], readStockResult)
     }
     
     func verifyUpdateStock(of fruit: Fruit, newValue: Int) {
+        XCTAssertEqual(self.stockData[fruit], newValue)
+    }
+    
+    func verifydecreaseStock(of fruit: Fruit, newValue: Int) {
         XCTAssertEqual(self.stockData[fruit], newValue)
     }
 }

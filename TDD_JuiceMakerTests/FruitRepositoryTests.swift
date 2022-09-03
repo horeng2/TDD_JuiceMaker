@@ -37,4 +37,16 @@ class FruitRepositoryTests: XCTestCase {
         
         XCTAssertEqual(newValue, testData[testFruit])
     }
+    
+    func decreaseStock(of fruit: Fruit, by count: Int) throws {
+        guard let currentStock = self.testData[fruit] else {
+            throw ErrorType.readError
+        }
+        guard currentStock > .zero else {
+            throw ErrorType.outOfStock
+        }
+        self.testData.updateValue(currentStock - count, forKey: fruit)
+        
+        XCTAssertEqual(currentStock - count, testData[fruit])
+    }
 }
