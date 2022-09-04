@@ -10,6 +10,6 @@ import RxSwift
 
 protocol Repository {
     func readStock(of fruit: Fruit) -> Observable<Int>
-    func updateStock(of fruit: Fruit, newValue: Int)
-    func decreaseStock(of fruit: Fruit, by count: Int) throws
+    func updateStock(of fruit: Fruit, newValue: Int) -> Observable<Bool>
+    func decreaseStock(of fruit: Fruit, by count: Int)
 }

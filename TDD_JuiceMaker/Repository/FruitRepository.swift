@@ -11,6 +11,8 @@ import RxSwift
 final class FruitRepository: Repository {
     private var stockData = [Fruit: Int]()
     private let initialStock = 10
+    private let maximumStock = 100
+    private let minimumStock = 0
     
     init() {
         Fruit.allCases.forEach { fruit in
@@ -23,16 +25,23 @@ final class FruitRepository: Repository {
         return Observable.just(fruitStock)
     }
     
-    func updateStock(of fruit: Fruit, newValue: Int) {
+    func updateStock(of fruit: Fruit, newValue: Int) -> Observable<Bool> {
+        guard newValue < self.maximumStock else {
+            return Observable.error(ErrorType.LimitError.maximumLimit)
+        }
+        guard newValue > self.minimumStock else {
+            return Observable.error(ErrorType.LimitError.minimumLimit)
+        }
+        
         self.stockData.updateValue(newValue, forKey: fruit)
+        
+        return Observable.just(true)
     }
     
-    func decreaseStock(of fruit: Fruit, by count: Int) throws {
-        guard let currentStock = self.stockData[fruit] else {
+    func decreaseStock(of fruit: Fruit, by count: Int) {
+        guard let currentStock = self.stockData[fruit],
+              currentStock - count > .zero else {
             return
-        }
-        guard currentStock - count > .zero else {
-            throw ErrorType.outOfStock
         }
         self.stockData.updateValue(currentStock - count, forKey: fruit)
     }

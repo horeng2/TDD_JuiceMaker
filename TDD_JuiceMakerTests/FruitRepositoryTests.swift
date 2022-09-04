@@ -37,7 +37,7 @@ final class FruitRepositoryTests: XCTestCase {
     func test_updateStock() {
         let newValue = 20
 
-        repository.updateStock(of: testFruit, newValue: newValue)
+        let _ = repository.updateStock(of: testFruit, newValue: newValue)
         
        let observable = repository.readStock(of: testFruit)
             .toBlocking()
@@ -45,13 +45,20 @@ final class FruitRepositoryTests: XCTestCase {
         let expectation = newValue
         
         XCTAssertEqual(result, expectation)
+        
+        
+        let success = repository.updateStock(of: testFruit, newValue: newValue)
+            .toBlocking()
+        let sucessObservable = try! success.single()
+        
+        XCTAssertEqual(sucessObservable, true)
         repository.verifyReadStock(of: testFruit, readStockResult: newValue)
     }
     
     func test_decreaseStock() {
-        let decreaseCount = 1
+        let decreaseCount = 2
         
-        try! repository.decreaseStock(of: testFruit, by: decreaseCount)
+        repository.decreaseStock(of: testFruit, by: decreaseCount)
         
         let observable = repository.readStock(of: testFruit)
              .toBlocking()
@@ -60,13 +67,5 @@ final class FruitRepositoryTests: XCTestCase {
         
         XCTAssertEqual(result, expectation)
         repository.verifyReadStock(of: testFruit, readStockResult: testData[testFruit]! - decreaseCount)
-    }
-    
-    func test_outOfStockError() {
-        let decreaseCount = testData[testFruit]! + 1
-        
-        XCTAssertThrowsError(try repository.decreaseStock(of: testFruit, by: decreaseCount)) {
-            XCTAssertEqual($0 as! ErrorType, ErrorType.outOfStock)
-        }
     }
 }
