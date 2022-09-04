@@ -22,7 +22,7 @@ final class JuiceMakerTests: XCTestCase {
                           .pineapple: 10,
                           .kiwi: 10,
                           .mango: 10]
-        self.testJuice = .bananaJuice
+        self.testJuice = .strawberryBananaJuice
         
         let repository = MockFruitRepository(data: testFruitStock)
         self.juiceMaker = JuiceMaker(fruitRepository: repository)
@@ -30,11 +30,41 @@ final class JuiceMakerTests: XCTestCase {
     
     func test_makeJuice() {
         let observable = juiceMaker.makeJuice(testJuice)
+            .do(onError: { error in
+                XCTAssertEqual(error as! ErrorType, ErrorType.outOfStock)
+            })
+            .retry()
             .toBlocking()
         let result = try! observable.single()
         let expectation = testJuice
         
         XCTAssertEqual(result, expectation)
+    }
+    
+    func test_decreaseFruitStock() {
+        let repository = MockFruitRepository(data: testFruitStock)
+        
+        testJuice.recipe.forEach{ requiredFruit, requiredCount in
+            repository.decreaseStock(of: requiredFruit, by: requiredCount)
+        }
+        
+        
+        var current = [Fruit: Int]()
+        
+        testJuice.recipe.forEach{ requiredFruit, requiredCount in
+           let stockObservable = repository.readStock(of: requiredFruit)
+                .toBlocking()
+            let stock = try! stockObservable.single()
+            current.updateValue(stock, forKey: requiredFruit)
+        }
+        
+        var correct = testJuice.recipe
+        
+        let _ = correct.compactMap{ requiredFruit, requiredCount in
+            correct.updateValue(testFruitStock[requiredFruit]! - requiredCount, forKey: requiredFruit)
+        }
+        
+        XCTAssertEqual(current, correct)
     }
     
     func test_haveAllIngredients() {

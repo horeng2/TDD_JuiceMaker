@@ -36,7 +36,7 @@ final class MockFruitRepository: Repository {
     
     func decreaseStock(of fruit: Fruit, by count: Int) {
         guard let currentStock = self.stockData[fruit],
-              currentStock - count > .zero else {
+              currentStock - count >= .zero else {
             return
         }
         self.stockData.updateValue(currentStock - count, forKey: fruit)
