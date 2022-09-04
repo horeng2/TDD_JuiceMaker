@@ -22,7 +22,7 @@ final class JuiceMakerTests: XCTestCase {
                           .pineapple: 10,
                           .kiwi: 10,
                           .mango: 10]
-        self.testJuice = .strawberryBananaJuice
+        self.testJuice = .bananaJuice
         
         let repository = MockFruitRepository(data: testFruitStock)
         self.juiceMaker = JuiceMaker(fruitRepository: repository)
@@ -32,29 +32,9 @@ final class JuiceMakerTests: XCTestCase {
         let observable = juiceMaker.makeJuice(testJuice)
             .toBlocking()
         let result = try! observable.single()
-        let expectation = testJuice.recipe.map{ requiredFruit, requiredCount in
-            requiredCount <= testFruitStock[requiredFruit]! ? true : false
-        }
-            .contains(false) ? false : true
+        let expectation = testJuice
         
         XCTAssertEqual(result, expectation)
-        
-        
-        var decreaseResult = [Fruit: Int]()
-        testJuice.recipe.forEach{ requiredFruit, requiredCount in
-            juiceMaker.fetchFruitStock(requiredFruit)
-                .subscribe(onNext: { currentValue in
-                    decreaseResult.updateValue(currentValue, forKey: requiredFruit)
-                })
-                .disposed(by: disposeBag)
-        }
-        
-        var decreaseExpectation = [Fruit: Int]()
-        testJuice.recipe.forEach{ requiredFruit, requiredCount in
-            decreaseExpectation.updateValue(testFruitStock[requiredFruit]! - requiredCount, forKey: requiredFruit)
-        }
-        
-        XCTAssertEqual(expectation, expectation)
     }
     
     func test_haveAllIngredients() {

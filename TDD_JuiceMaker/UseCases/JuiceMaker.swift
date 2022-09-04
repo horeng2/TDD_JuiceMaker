@@ -44,11 +44,7 @@ struct JuiceMaker {
     
     func decreaseFruitStock(for juice: Juice) {
         juice.recipe.forEach{ requiredFruit, requiredCount in
-            do {
-                try self.fruitRepository.decreaseStock(of: requiredFruit, by: requiredCount)
-            } catch {
-                print(error)
-            }
+            self.fruitRepository.decreaseStock(of: requiredFruit, by: requiredCount)
         }
     }
     
@@ -68,7 +64,7 @@ struct JuiceMaker {
         }
     }
     
-    func updateFruitStock(of fruit: Fruit, newQuantity: Int) {
-        self.fruitRepository.updateStock(of: fruit, newValue: newQuantity)
+    func updateFruitStock(of fruit: Fruit, newQuantity: Int) -> Observable<Bool> {
+        return self.fruitRepository.updateStock(of: fruit, newValue: newQuantity)
     }
 }

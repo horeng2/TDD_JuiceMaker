@@ -47,7 +47,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                 
         let mangoKiwiJuiceTapAction = input.mangoKiwiJuiceButtonDidTap
@@ -59,7 +58,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                 
         let strawberryJuiceTapAction = input.strawberryJuiceButtonDidTap
@@ -71,7 +69,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                 
         let bananaJuiceTapAction = input.bananaJuiceButtonDidTap
@@ -83,7 +80,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                         
         let pineappleJuiceTapAction = input.pineappleJuiceButtonDidTap
@@ -95,7 +91,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                 
         let kiwiJuiceTapAction = input.kiwiJuiceButtonDidTap
@@ -107,7 +102,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                                 
         let mangoJuiceTapAction = input.mangoJuiceButtonDidTap
@@ -119,7 +113,6 @@ final class OrderViewModel {
                 let message = OrderResult.orderFailure.message
                 orderResultMessage.onNext(message)
             })
-            .mapToVoid()
             .retry()
                                         
         let strawberryStock = Observable.merge(
