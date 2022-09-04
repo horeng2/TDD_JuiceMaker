@@ -21,17 +21,12 @@ final class MockFruitRepository: Repository {
         return Observable.just(fruitStock)
     }
     
-    func updateStock(of fruit: Fruit, newValue: Int) -> Observable<Bool> {
-        guard newValue < 100 else {
-            return Observable.error(ErrorType.LimitError.maximumLimit)
+    func updateStock(of fruit: Fruit, newValue: Int) {
+        guard newValue <= 100,
+              newValue >= 0 else {
+            return
         }
-        guard newValue > 0 else {
-            return Observable.error(ErrorType.LimitError.minimumLimit)
-        }
-        
         self.stockData.updateValue(newValue, forKey: fruit)
-        
-        return Observable.just(true)
     }
     
     func decreaseStock(of fruit: Fruit, by count: Int) {

@@ -9,10 +9,11 @@ import Foundation
 import RxSwift
 
 struct JuiceMaker {
-    var fruitRepository: Repository
+    private var fruitRepository: Repository
     
-    init(fruitRepository: Repository) {
-        self.fruitRepository = fruitRepository
+    init() {
+        let repository = FruitRepository.shared
+        self.fruitRepository = repository
     }
     
     func fetchFruitStock(_ fruit: Fruit ) -> Observable<Int> {
@@ -42,12 +43,6 @@ struct JuiceMaker {
         return makeResult
     }
     
-    func decreaseFruitStock(for juice: Juice) {
-        juice.recipe.forEach{ requiredFruit, requiredCount in
-            self.fruitRepository.decreaseStock(of: requiredFruit, by: requiredCount)
-        }
-    }
-    
     func haveAllIngredients(for juice: Juice) -> Observable<Bool> {
         let haveFruitStock = self.haveFruitStock(for: juice)
         return Observable.zip(haveFruitStock) { haveFruit in
@@ -64,7 +59,13 @@ struct JuiceMaker {
         }
     }
     
-    func updateFruitStock(of fruit: Fruit, newQuantity: Int) -> Observable<Bool> {
-        return self.fruitRepository.updateStock(of: fruit, newValue: newQuantity)
+    func decreaseFruitStock(for juice: Juice) {
+        juice.recipe.forEach{ requiredFruit, requiredCount in
+            self.fruitRepository.decreaseStock(of: requiredFruit, by: requiredCount)
+        }
+    }
+    
+    func updateFruitStock(of fruit: Fruit, newQuantity: Int){
+        self.fruitRepository.updateStock(of: fruit, newValue: newQuantity)
     }
 }

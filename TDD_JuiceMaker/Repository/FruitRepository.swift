@@ -9,10 +9,11 @@ import Foundation
 import RxSwift
 
 final class FruitRepository: Repository {
+    static let shared = FruitRepository()
     private var stockData = [Fruit: Int]()
     private let initialStock = 10
-    private let maximumStock = 100
-    private let minimumStock = 0
+    static let maximumStock = 100
+    static let minimumStock = 0
     
     init() {
         Fruit.allCases.forEach { fruit in
@@ -25,22 +26,17 @@ final class FruitRepository: Repository {
         return Observable.just(fruitStock)
     }
     
-    func updateStock(of fruit: Fruit, newValue: Int) -> Observable<Bool> {
-        guard newValue < self.maximumStock else {
-            return Observable.error(ErrorType.LimitError.maximumLimit)
+    func updateStock(of fruit: Fruit, newValue: Int){
+        guard newValue <= FruitRepository.maximumStock,
+              newValue >= FruitRepository.minimumStock else {
+            return
         }
-        guard newValue > self.minimumStock else {
-            return Observable.error(ErrorType.LimitError.minimumLimit)
-        }
-        
         self.stockData.updateValue(newValue, forKey: fruit)
-        
-        return Observable.just(true)
     }
     
     func decreaseStock(of fruit: Fruit, by count: Int) {
         guard let currentStock = self.stockData[fruit],
-              currentStock - count >= .zero else {
+              currentStock - count >= FruitRepository.minimumStock else {
             return
         }
         self.stockData.updateValue(currentStock - count, forKey: fruit)

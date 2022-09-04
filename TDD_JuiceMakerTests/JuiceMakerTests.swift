@@ -24,8 +24,7 @@ final class JuiceMakerTests: XCTestCase {
                           .mango: 10]
         self.testJuice = .strawberryBananaJuice
         
-        let repository = MockFruitRepository(data: testFruitStock)
-        self.juiceMaker = JuiceMaker(fruitRepository: repository)
+        self.juiceMaker = JuiceMaker()
     }
     
     func test_makeJuice() {

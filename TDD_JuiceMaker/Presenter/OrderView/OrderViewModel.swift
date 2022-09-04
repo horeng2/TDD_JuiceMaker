@@ -9,12 +9,7 @@ import Foundation
 import RxSwift
 
 final class OrderViewModel {
-    private let juiceMaker: JuiceMaker
-    
-    init() {
-        let repository = FruitRepository()
-        self.juiceMaker = JuiceMaker(fruitRepository: repository)
-    }
+    private let juiceMaker = JuiceMaker()
     
     struct Input {
         let viewWillAppear: Observable<Void>

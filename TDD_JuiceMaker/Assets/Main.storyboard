@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A0t-vg-nTy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A0t-vg-nTy">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--맛있는 쥬스를 만들어 드려요!-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OrderViewController" customModule="JuiceMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="OrderViewController" customModule="TDD_JuiceMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,6 +190,7 @@
                         <barButtonItem key="rightBarButtonItem" title="재고 수정" id="FEc-td-OAu">
                             <connections>
                                 <action selector="moveToEditViewController:" destination="BYZ-38-t0r" id="sKs-hq-pGr"/>
+                                <segue destination="D03-EW-v3Q" kind="show" id="XeI-6c-NUE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -215,7 +216,7 @@
         <!--재고 추가-->
         <scene sceneID="hH0-Qt-Thk">
             <objects>
-                <viewController storyboardIdentifier="EditViewController" id="D03-EW-v3Q" customClass="EditViewController" customModule="JuiceMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditViewController" id="D03-EW-v3Q" customClass="EditViewController" customModule="TDD_JuiceMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="349-oS-Rsz">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn7-N9-jGM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752" y="1019"/>
+            <point key="canvasLocation" x="763" y="1019"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uJT-JE-z2k">
@@ -380,25 +381,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNj-i7-B9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19.419642857142858" y="82.608695652173921"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YOK-xt-UXc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p4f-6M-VpG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="2Pr-Ka-YPo"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FqJ-9N-Xgy">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="D03-EW-v3Q" kind="relationship" relationship="rootViewController" id="CES-1M-02v"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L3m-AJ-9wv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9" y="1019"/>
         </scene>
     </scenes>
     <resources>

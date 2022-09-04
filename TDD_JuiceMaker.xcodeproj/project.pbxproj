@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		488EE13F28C3DBB900535116 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488EE13E28C3DBB900535116 /* EditViewModel.swift */; };
 		48B9F89D28C4D224003E5C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B9F89C28C4D224003E5C9B /* Main.storyboard */; };
+		48B9F89F28C4D39F003E5C9B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B9F89E28C4D39F003E5C9B /* EditViewController.swift */; };
 		48FF486028C10E1600E42272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF485F28C10E1600E42272 /* AppDelegate.swift */; };
 		48FF486228C10E1600E42272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF486128C10E1600E42272 /* SceneDelegate.swift */; };
 		48FF486428C10E1600E42272 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF486328C10E1600E42272 /* OrderViewController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		488EE13E28C3DBB900535116 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		48B9F89C28C4D224003E5C9B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		48B9F89E28C4D39F003E5C9B /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		48FF485C28C10E1600E42272 /* TDD_JuiceMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDD_JuiceMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FF485F28C10E1600E42272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48FF486128C10E1600E42272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		488EE13D28C3DBA500535116 /* EditView */ = {
 			isa = PBXGroup;
 			children = (
+				48B9F89E28C4D39F003E5C9B /* EditViewController.swift */,
 				488EE13E28C3DBB900535116 /* EditViewModel.swift */,
 			);
 			path = EditView;
@@ -143,7 +146,6 @@
 				48FF486D28C10E1700E42272 /* Info.plist */,
 				48FF48B028C3AA2600E42272 /* App */,
 				48FF48B128C3AA3B00E42272 /* Presenter */,
-				488EE13D28C3DBA500535116 /* EditView */,
 				48FF48AF28C3AA1300E42272 /* UseCases */,
 				48FF48AE28C3A9FC00E42272 /* Entity */,
 				48FF488F28C1133500E42272 /* Repository */,
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				488EE13C28C3DB9900535116 /* OrderView */,
+				488EE13D28C3DBA500535116 /* EditView */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B9F89F28C4D39F003E5C9B /* EditViewController.swift in Sources */,
 				488EE13F28C3DBB900535116 /* EditViewModel.swift in Sources */,
 				48FF48A728C338B400E42272 /* Repository.swift in Sources */,
 				48FF48AD28C3A9C600E42272 /* ErrorType.swift in Sources */,
