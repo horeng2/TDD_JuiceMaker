@@ -9,4 +9,9 @@ import Foundation
 
 enum ErrorType: Error {
     case outOfStock
+    
+    enum LimitError: Error {
+    case maximumLimit
+    case minimumLimit
+    }
 }
