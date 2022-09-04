@@ -11,7 +11,8 @@ import RxSwift
 final class EditViewModel {
     private let juiceMaker: JuiceMaker
     
-    init(repository: Repository) {
+    init() {
+        let repository = FruitRepository()
         self.juiceMaker = JuiceMaker(fruitRepository: repository)
     }
     
