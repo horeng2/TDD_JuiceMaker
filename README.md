@@ -1,7 +1,7 @@
 # TDD_JuiceMaker🥤
 ### [기존의 UIKit 프로젝트](https://github.com/horeng2/3.ios-juice-maker)를 MVVM + RxSwift + TDD 방식으로 새롭게 구현한 프로젝트입니다.
 ### 주요 기능 
-주스 주문, 주스별 재고 차감, 과일 재고 관리 등
+주스 주문, 주문  재고 차감, 과일 재고 관리 등
 
 ### 키워드
 - RxSwift
