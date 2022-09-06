@@ -9,7 +9,6 @@
 - TDD
 - UnitTest
 - Input/Output
-<br/>
 
 ## 프로젝트 목적
 - MVVM + RxSwift를 직접 적용해보며 학습
