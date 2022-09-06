@@ -45,14 +45,6 @@ final class FruitRepositoryTests: XCTestCase {
         let expectation = newValue
         
         XCTAssertEqual(result, expectation)
-        
-        
-        let success = repository.updateStock(of: testFruit, newValue: newValue)
-            .toBlocking()
-        let sucessObservable = try! success.single()
-        
-        XCTAssertEqual(sucessObservable, true)
-        repository.verifyReadStock(of: testFruit, readStockResult: newValue)
     }
     
     func test_decreaseStock() {

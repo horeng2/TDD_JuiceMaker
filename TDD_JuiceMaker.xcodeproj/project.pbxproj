@@ -10,14 +10,13 @@
 		488EE13F28C3DBB900535116 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488EE13E28C3DBB900535116 /* EditViewModel.swift */; };
 		48B9F89D28C4D224003E5C9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B9F89C28C4D224003E5C9B /* Main.storyboard */; };
 		48B9F89F28C4D39F003E5C9B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B9F89E28C4D39F003E5C9B /* EditViewController.swift */; };
+		48B9F8B928C7334E003E5C9B /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 48B9F8B828C7334E003E5C9B /* RxBlocking */; };
 		48FF486028C10E1600E42272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF485F28C10E1600E42272 /* AppDelegate.swift */; };
 		48FF486228C10E1600E42272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF486128C10E1600E42272 /* SceneDelegate.swift */; };
 		48FF486428C10E1600E42272 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF486328C10E1600E42272 /* OrderViewController.swift */; };
 		48FF486928C10E1700E42272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48FF486828C10E1700E42272 /* Assets.xcassets */; };
 		48FF486C28C10E1700E42272 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48FF486A28C10E1700E42272 /* LaunchScreen.storyboard */; };
 		48FF487728C10E1700E42272 /* FruitRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF487628C10E1700E42272 /* FruitRepositoryTests.swift */; };
-		48FF488128C10E1700E42272 /* TDD_JuiceMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */; };
-		48FF488328C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */; };
 		48FF489128C1134400E42272 /* FruitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489028C1134400E42272 /* FruitRepository.swift */; };
 		48FF489328C1136A00E42272 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FF489228C1136A00E42272 /* Fruit.swift */; };
 		48FF489828C1176F00E42272 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 48FF489728C1176F00E42272 /* RxCocoa */; };
@@ -62,8 +61,6 @@
 		48FF487228C10E1700E42272 /* TDD_JuiceMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_JuiceMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FF487628C10E1700E42272 /* FruitRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitRepositoryTests.swift; sourceTree = "<group>"; };
 		48FF487C28C10E1700E42272 /* TDD_JuiceMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDD_JuiceMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITests.swift; sourceTree = "<group>"; };
-		48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDD_JuiceMakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		48FF489028C1134400E42272 /* FruitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitRepository.swift; sourceTree = "<group>"; };
 		48FF489228C1136A00E42272 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		48FF489F28C117B700E42272 /* JuiceMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceMakerTests.swift; sourceTree = "<group>"; };
@@ -89,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B9F8B928C7334E003E5C9B /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,13 +118,20 @@
 			path = EditView;
 			sourceTree = "<group>";
 		};
+		48B9F8B728C7334E003E5C9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		48FF485328C10E1600E42272 = {
 			isa = PBXGroup;
 			children = (
 				48FF485E28C10E1600E42272 /* TDD_JuiceMaker */,
 				48FF487528C10E1700E42272 /* TDD_JuiceMakerTests */,
-				48FF487F28C10E1700E42272 /* TDD_JuiceMakerUITests */,
 				48FF485D28C10E1600E42272 /* Products */,
+				48B9F8B728C7334E003E5C9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,15 +168,6 @@
 				48FF48A828C339A800E42272 /* MockFruitRepository.swift */,
 			);
 			path = TDD_JuiceMakerTests;
-			sourceTree = "<group>";
-		};
-		48FF487F28C10E1700E42272 /* TDD_JuiceMakerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				48FF488028C10E1700E42272 /* TDD_JuiceMakerUITests.swift */,
-				48FF488228C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift */,
-			);
-			path = TDD_JuiceMakerUITests;
 			sourceTree = "<group>";
 		};
 		48FF488F28C1133500E42272 /* Repository */ = {
@@ -274,6 +270,9 @@
 				48FF487428C10E1700E42272 /* PBXTargetDependency */,
 			);
 			name = TDD_JuiceMakerTests;
+			packageProductDependencies = (
+				48B9F8B828C7334E003E5C9B /* RxBlocking */,
+			);
 			productName = TDD_JuiceMakerTests;
 			productReference = 48FF487228C10E1700E42272 /* TDD_JuiceMakerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -404,8 +403,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48FF488128C10E1700E42272 /* TDD_JuiceMakerUITests.swift in Sources */,
-				48FF488328C10E1700E42272 /* TDD_JuiceMakerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +734,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		48B9F8B828C7334E003E5C9B /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
 		48FF489728C1176F00E42272 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 48FF489428C1176F00E42272 /* XCRemoteSwiftPackageReference "RxSwift" */;
