@@ -20,6 +20,8 @@
 
 ![Simulator Screen Recording - iPhone 13 - 2022-09-06 at 17 03 34](https://user-images.githubusercontent.com/87305744/188597359-3287e74f-da00-4be0-b70c-a9ddd1b59c28.gif)
 
+<br/>
+
 과일은 주스에 필요한 개수만큼 차감됩니다.
 재고가 부족할 경우 주문이 불가하며 알림 메세지가 발생합니다.
 
