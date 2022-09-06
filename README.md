@@ -16,6 +16,8 @@
 - 테스트 주도 개발 방식 경험
 <br/>
 
+---
+
 ## 기능
 ### 주스 주문
 - 주스 주문 버튼을 통해 주문할 수 있습니다.
@@ -35,6 +37,7 @@
 
 ![Simulator Screen Recording - iPhone 13 - 2022-09-06 at 17 04 11](https://user-images.githubusercontent.com/87305744/188597738-4b4a67c4-f27f-49c2-86ce-bbfaef9dfcec.gif)
 
+---
 
 ## 고민점
 ### RxTest/RxBlocking의 사용
@@ -64,6 +67,7 @@ EditViewModel에서 바인딩을 할 때의 stepperValue는 초기상태, 즉 0�
     
 다만, 위와 같은 방식은 뷰모델에서 옵저버블을 소비하는 방식이기 때문에 `skip(1)` 오퍼레이터를 사용하여 첫번째 이벤트는 무시하도록 구현하여 해결했습니다.
 
+---
 
 ## 프로젝트를 통한 학습결과
 ### TDD의 장점과 테스트 코드의 필요성을 직접 경험
