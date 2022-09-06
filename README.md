@@ -16,20 +16,20 @@
 
 ## 기능
 ### 주스 주문
-주스 주문 버튼을 통해 주문할 수 있습니다.
+- 주스 주문 버튼을 통해 주문할 수 있습니다.
 
 ![Simulator Screen Recording - iPhone 13 - 2022-09-06 at 17 03 34](https://user-images.githubusercontent.com/87305744/188597359-3287e74f-da00-4be0-b70c-a9ddd1b59c28.gif)
 
 <br/>
 
-과일은 주스에 필요한 개수만큼 차감됩니다.
-재고가 부족할 경우 주문이 불가하며 알림 메세지가 발생합니다.
+- 과일은 주스에 필요한 개수만큼 차감됩니다.
+- 재고가 부족할 경우 주문이 불가하며 알림 메세지가 발생합니다.
 
 ![Simulator Screen Recording - iPhone 13 - 2022-09-06 at 17 03 54](https://user-images.githubusercontent.com/87305744/188597700-ca4a67c6-a74a-4646-8ff8-a5a759265a6a.gif)
 
 
 ### 재고 관리
-과일의 재고를 Stepper를 통해서 관리할 수 있습니다.
+- 과일의 재고를 Stepper를 통해서 관리할 수 있습니다.
 
 ![Simulator Screen Recording - iPhone 13 - 2022-09-06 at 17 04 11](https://user-images.githubusercontent.com/87305744/188597738-4b4a67c4-f27f-49c2-86ce-bbfaef9dfcec.gif)
 
