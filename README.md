@@ -42,7 +42,7 @@
 ---
 
 ## 💡 고민점
-### RxTest/RxBlocking의 사용
+### RxBlocking의 사용
 - RxTest: 옵저버블에 시간 개념을 주입하여 원하는 시간에 방출되는 이벤트를 검증
 - RxBlocking: 옵저버블의 특정시간 내의 이벤트 방출만을 검증
 
